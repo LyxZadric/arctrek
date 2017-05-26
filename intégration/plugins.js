@@ -1,7 +1,7 @@
 /* click sur une image destination, la balise sejour correspondante apparait
 les autres disparaissent */
 
-$("#is").click(function(){
+$("#dest1").click(function(){
   $("#islande").css("display", "block");
 
   $("#norvege").css("display", "none");
@@ -12,7 +12,7 @@ $("#is").click(function(){
 
 });
 
-$("#no").click(function(){
+$("#dest2").click(function(){
   $("#islande").css("display", "none");
 
   $("#norvege").css("display", "block");
@@ -23,7 +23,7 @@ $("#no").click(function(){
 
 });
 
-$("#ca").click(function(){
+$("#dest3").click(function(){
   $("#islande").css("display", "none");
 
   $("#norvege").css("display", "none");
@@ -34,7 +34,7 @@ $("#ca").click(function(){
 
 });
 
-$("#gro").click(function(){
+$("#dest4").click(function(){
   $("#islande").css("display", "none");
 
   $("#norvege").css("display", "none");

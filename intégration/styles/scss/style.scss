@@ -15,6 +15,7 @@
  }
 
  body{
+    background-color: red;
     p,a{
         font-family : "bonveno";
     }
@@ -196,13 +197,17 @@ main{
             article{
 
                 h3{
-                    margin-bottom : $e;
                     color : $bleu;
+                    a{
+                      position : relative;
+                      margin-bottom : $ge;
+                    }
+
                 }
                 a{
                     color : $bleu;
                     position : absolute;
-                    right: $e;;
+                    right: $e;
                 }
 
                 section{

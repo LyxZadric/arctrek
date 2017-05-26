@@ -1,0 +1,76 @@
+-- AFFICHAGE PAGE D'ACCUEIL --------------------------------------------------------------------------
+-- AFFICHAGE DES ACTUALITÉS
+SELECT * FROM article 
+              INNER JOIN categorie ON categorie.id = article.categorie_id
+              WHERE categorie_id = 1
+              ORDER BY article.date_creation DESC
+              LIMIT 2;
+
+-- AFFICHAGE DES RÉCITS
+SELECT * FROM article 
+              INNER JOIN categorie ON categorie.id = article.categorie_id
+              WHERE categorie_id = 1
+              ORDER BY article.date_creation DESC
+              LIMIT 2;
+
+-- AFFICHAGE DES SEJOURS ISLANDE
+SELECT  sejour.id, 
+		sejour.titre, 
+		sejour.contenu, 
+		sejour.difficulte, 
+		sejour.duree_sejour, 
+		sejour.prix, 
+		sejour.image,
+		destination.id, 
+		destination.libelle,
+		date_depart.depart
+FROM sejour
+INNER JOIN destination ON destination.id = sejour.destination_id
+INNER JOIN sejour_has_date_depart ON sejour_has_date_depart.sejour_id = sejour.id
+INNER JOIN date_depart ON date_depart.id = sejour_has_date_depart.date_depart_id
+WHERE destination_id = 1
+;
+
+-- AFFICHAGE DES SEJOURS NORVEGE
+SELECT * FROM sejour 
+WHERE destination_id = 3 LIMIT 2;
+
+-- AFFICHAGE DES SEJOURS CANADA
+SELECT * FROM sejour 
+WHERE destination_id = 1 LIMIT 2;
+
+-- AFFICHAGE DES SEJOURS GROENLAND
+SELECT * FROM sejour 
+WHERE destination_id = 4 LIMIT 2;
+
+-- AFFICHAGE PAGE SEJOURS -----------------------------------------------------------------------------------
+
+-- AFFICHAGE DES SEJOURS ISLANDE
+SELECT * FROM sejour 
+WHERE destination_id = 2;
+
+-- AFFICHAGE DES SEJOURS NORVEGE
+SELECT * FROM sejour 
+WHERE destination_id = 3;
+
+-- AFFICHAGE DES SEJOURS CANADA
+SELECT * FROM sejour 
+WHERE destination_id = 1;
+
+-- AFFICHAGE DES SEJOURS GROENLAND
+SELECT * FROM sejour 
+WHERE destination_id = 4;
+
+-- AFFICHAGE DES DESTINATIONS 
+SELECT * FROM destination 
+WHERE id = 1;
+
+-- AFFICHAGE PAGE ACTUALITE -----------------------------------------------------------------------------------
+
+-- AFFICHAGE DE L'ARTICLE ACTUALITE OU RÉCIT CLIQUÉ
+
+SELECT * FROM article
+WHERE article.id = 1;
+-- remplacer 1 par une variable dynamique
+
+
