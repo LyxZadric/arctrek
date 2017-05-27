@@ -199,10 +199,10 @@ main{
                 h3{
                     color : $bleu;
                     a{
+                      font-family : "copperplate";
                       position : relative;
                       margin-bottom : $ge;
                     }
-
                 }
                 a{
                     color : $bleu;
@@ -241,6 +241,11 @@ main{
         }
         h3{
             color : $bleu;
+            padding-bottom: 1.5em;
+            a{
+              font-family : "copperplate";
+              margin-left : 0.5em;
+            }
         }
         a{
             color : $bleu;
@@ -252,13 +257,18 @@ main{
         }
         h3{
             color : $bleu;
+            padding-bottom: 1.5em;
+            a{
+              font-family : "copperplate";
+              margin-left : 0.5em;
+            }
         }
         a{
             color : $bleu;
         }
     }
     .article{
-        margin-bottom : $ge;
+        margin-bottom : $ge/2;
 
         article{
 

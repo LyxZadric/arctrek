@@ -1,10 +1,16 @@
 -- AFFICHAGE PAGE D'ACCUEIL --------------------------------------------------------------------------
 -- AFFICHAGE DES ACTUALITÉS
-SELECT * FROM article 
-              INNER JOIN categorie ON categorie.id = article.categorie_id
-              WHERE categorie_id = 1
-              ORDER BY article.date_creation DESC
-              LIMIT 2;
+SELECT article.id,
+	   article.titre,
+		article.contenu,
+		article.date_creation,
+		article.image,
+		article.categorie_id
+FROM article 
+INNER JOIN categorie ON categorie.id = article.categorie_id
+WHERE categorie_id = 1
+ORDER BY article.date_creation DESC
+LIMIT 2;
 
 -- AFFICHAGE DES RÉCITS
 SELECT * FROM article 
@@ -69,8 +75,19 @@ WHERE id = 1;
 
 -- AFFICHAGE DE L'ARTICLE ACTUALITE OU RÉCIT CLIQUÉ
 
-SELECT * FROM article
-WHERE article.id = 1;
+SELECT article.id,
+		article.titre, 
+		article.contenu, 
+		article.date_creation, 
+		article.image,
+		article.categorie_id, 
+		CONCAT(utilisateur.nom,' ',utilisateur.prenom) AS auteur
+FROM article
+INNER JOIN categorie ON categorie.id = article.categorie_id
+INNER JOIN utilisateur_has_article ON utilisateur_has_article.article_id = article.id
+INNER JOIN utilisateur ON utilisateur.id = utilisateur_has_article.utilisateur_id
+WHERE article.id = 1
+AND article.categorie_id = 1;
 -- remplacer 1 par une variable dynamique
 
 
