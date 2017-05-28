@@ -91,3 +91,45 @@ AND article.categorie_id = 1;
 -- remplacer 1 par une variable dynamique
 
 
+-- AFFICHAGE DE TOUS LES ARTICLES ACTUALITÉS
+
+SELECT article.id,
+		article.titre, 
+		article.contenu, 
+		article.date_creation, 
+		article.image,
+		article.categorie_id, 
+		CONCAT(utilisateur.nom,' ',utilisateur.prenom) AS auteur,
+		categorie.libelle
+FROM article
+INNER JOIN categorie ON categorie.id = article.categorie_id
+INNER JOIN utilisateur_has_article ON utilisateur_has_article.article_id = article.id
+INNER JOIN utilisateur ON utilisateur.id = utilisateur_has_article.utilisateur_id
+WHERE article.categorie_id = 1;
+
+-- AFFICHAGE D'UN SEJOUR (toutes les infos complètes)
+SELECT  sejour.id,
+		sejour.titre,
+		sejour.contenu,
+		sejour.difficulte,
+		sejour.duree_sejour,
+		sejour.prix,
+		sejour.climat,
+		sejour.sante,
+		sejour.equipement, 
+		sejour.itinéraire,
+		sejour.image,
+		destination.id AS 'destination_id',
+		destination.libelle,
+		DATE_FORMAT(MIN(date_depart.depart), '%d-%m-%Y') AS 'depart'
+FROM sejour
+INNER JOIN destination ON destination.id = sejour.destination_id
+INNER JOIN sejour_has_date_depart ON sejour_has_date_depart.sejour_id = sejour.id
+INNER JOIN date_depart ON date_depart.id = sejour_has_date_depart.date_depart_id
+WHERE sejour.id = 3;
+
+-- NB de sejours selon la destination 
+SELECT * 
+FROM sejour
+;
+

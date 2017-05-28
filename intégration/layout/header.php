@@ -23,7 +23,7 @@
             <!-- logo + navigation principale et secondaire-->
             <div class="row">
                 <div class="col-4-md col-lg-4 col-sm-12 col-xs-12 logo-container">
-                    <img src="images-finales/logo.png" alt="paysage" class="logo">
+                    <a href="index.php#img-header"><img src="images-finales/logo.png" alt="paysage" class="logo"></a>
                 </div>
                 <div class="col-8-md col-lg-8 col-sm-12 col-xs-12">
                     <div class="row">
@@ -39,10 +39,9 @@
                     <div class="row">
                         <nav class="main-nav">
                             <ul class="nav-principale">
-                                <li><a href="#">Accueil</a></li>
-                                <li><a href="#">Nos destinations</a></li>
-                                <li><a href="#">Nos séjours</a></li>
-                                <li><a href="#">Le blog</a></li>
+                                <li><a href="index.php#img-header">Accueil</a></li>
+                                <li><a href="les_sejours.php?id=1#img-header">Nos séjours</a></li>
+                                <li><a href="blog.php?id=1#img-header">Le blog</a></li>
                                 <li><a href="#">A propos</a></li>
                                 <li><a href="#">Contact</a></li>
                             </ul>
@@ -55,7 +54,7 @@
             <!-- Image header -->
             <div class="row">
                 <div class="col">
-                    <img src="images-finales/Image-header.jpg" alt="paysage" class="img-fluid">
+                    <img src="images-finales/Image-header.jpg" alt="paysage" class="img-fluid" id="img-header">
                 </div>
             </div>
 

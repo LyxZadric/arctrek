@@ -20,12 +20,14 @@ $i = 3;
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
             <article>
-                <h3><a href="article.php?id=<?php echo $actu["id"];?>?cat=<?php echo $actu["categorie_id"];?>">
+                <h3><a href="article.php?id=<?php echo $actu["id"];?>&cat=<?php echo $actu["categorie_id"];?>">
                     <?php echo $actu['titre'];?>
                     </a>
                 </h3>
                 <p><?php echo substr($actu['contenu'], 0, 505);?></p>
-                <a href="#">En lire plus ...</a>
+                <a href="article.php?id=<?php echo $actu["id"];?>&cat=<?php echo $actu["categorie_id"];?>">
+                  En lire plus ...
+                </a>
             </article>
         </div>
     </div>
@@ -33,7 +35,7 @@ $i = 3;
 
     <div class="row voir-plus">
         <hr>
-        <a href="#"> Lire plus d'actus </a>
+        <a href="blog.php?id=1#img-header"> Lire plus d'actus </a>
     </div>
 </section>
 
@@ -50,9 +52,15 @@ $i = 3;
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
             <article>
-                <h3><a href=""><?php echo $recit['titre'];?></a></h3>
+                <h3>
+                  <a href="article.php?id=<?php echo $recit["id"];?>&cat=<?php echo $recit["categorie_id"];?>">
+                    <?php echo $recit['titre'];?>
+                  </a>
+                </h3>
                 <p><?php echo substr($recit['contenu'], 0, 505);?></p>
-                <a href="#">En lire plus ...</a>
+                <a href="article.php?id=<?php echo $recit["id"];?>&cat=<?php echo $recit["categorie_id"];?>">
+                  En lire plus ...
+                </a>
             </article>
         </div>
     </div>
@@ -60,6 +68,6 @@ $i = 3;
 
     <div class="row voir-plus">
         <hr>
-        <a href="#">Lire plus de récits de voyage</a>
+        <a href="blog.php?id=2#img-header">Lire plus de récits de voyage</a>
     </div>
 </section>
