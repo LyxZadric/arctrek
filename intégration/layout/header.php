@@ -30,7 +30,7 @@
                         <ul class="nav-secondaire">
                             <li><a href="#">Newsletter</a></li>
                             <li><a href="#">Brochure</a></li>
-                            <li><a href="#">Espace Clients</a></li>
+                            <li><a href="login.php#img-header">Espace Clients</a></li>
                             <li><a href="#">Panier(0)</a></li>
                         </ul>
 
