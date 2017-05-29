@@ -35,8 +35,7 @@ function getArticle($id, $cat) {
 		                  CONCAT(utilisateur.nom,' ',utilisateur.prenom) AS auteur
               FROM article
               INNER JOIN categorie ON categorie.id = article.categorie_id
-              INNER JOIN utilisateur_has_article ON utilisateur_has_article.article_id = article.id
-              INNER JOIN utilisateur ON utilisateur.id = utilisateur_has_article.utilisateur_id
+              INNER JOIN utilisateur ON utilisateur.id = article.utilisateur_id
               WHERE article.id = :id
               AND article.categorie_id = :cat;
               ";
@@ -62,8 +61,7 @@ function getAllArticle($cat) {
 		                  CONCAT(utilisateur.nom,' ',utilisateur.prenom) AS auteur
               FROM article
               INNER JOIN categorie ON categorie.id = article.categorie_id
-              INNER JOIN utilisateur_has_article ON utilisateur_has_article.article_id = article.id
-              INNER JOIN utilisateur ON utilisateur.id = utilisateur_has_article.utilisateur_id
+              INNER JOIN utilisateur ON utilisateur.id = article.utilisateur_id
               WHERE article.categorie_id = :cat;
               ";
 

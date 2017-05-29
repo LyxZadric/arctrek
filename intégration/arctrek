@@ -18,23 +18,23 @@ SELECT * FROM article
               WHERE categorie_id = 1
               ORDER BY article.date_creation DESC
               LIMIT 2;
-/Users/DeborahB/Documents/module3/pierre/php/arctrek/arctrek/intégration/arctrek
+
 -- AFFICHAGE DES SEJOURS ISLANDE
 SELECT  sejour.id, 
 		sejour.titre, 
 		sejour.contenu, 
 		sejour.difficulte, 
 		sejour.duree_sejour, 
-		sejour.prix, 
+		date_depart.prix AS 'prix',
+		date_depart.depart AS 'depart',
 		sejour.image,
-		destination.id, 
-		destination.libelle,
-		date_depart.depart
+		destination.id AS 'categorie_id', 
+		destination.libelle
 FROM sejour
 INNER JOIN destination ON destination.id = sejour.destination_id
-INNER JOIN sejour_has_date_depart ON sejour_has_date_depart.sejour_id = sejour.id
-INNER JOIN date_depart ON date_depart.id = sejour_has_date_depart.date_depart_id
+INNER JOIN date_depart ON date_depart.sejour_id = sejour.id
 WHERE destination_id = 1
+LIMIT 2
 ;
 
 -- AFFICHAGE DES SEJOURS NORVEGE
@@ -73,7 +73,7 @@ WHERE id = 1;
 
 -- AFFICHAGE PAGE ACTUALITE -----------------------------------------------------------------------------------
 
--- AFFICHAGE DE L'ARTICLE ACTUALITE OU RÉCIT CLIQUÉ
+-- AFFICHAGE DE ARTICLE ACTUALITE OU RÉCIT CLIQUÉ
 
 SELECT article.id,
 		article.titre, 
@@ -124,8 +124,7 @@ SELECT  sejour.id,
 		DATE_FORMAT(MIN(date_depart.depart), '%d-%m-%Y') AS 'depart'
 FROM sejour
 INNER JOIN destination ON destination.id = sejour.destination_id
-INNER JOIN sejour_has_date_depart ON sejour_has_date_depart.sejour_id = sejour.id
-INNER JOIN date_depart ON date_depart.id = sejour_has_date_depart.date_depart_id
+INNER JOIN date_depart ON date_depart.id = sejour.id
 WHERE sejour.id = 3;
 
 -- NB de sejours selon la destination 
