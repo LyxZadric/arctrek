@@ -18,7 +18,7 @@ SELECT * FROM article
               WHERE categorie_id = 1
               ORDER BY article.date_creation DESC
               LIMIT 2;
-
+/Users/DeborahB/Documents/module3/pierre/php/arctrek/arctrek/intégration/arctrek
 -- AFFICHAGE DES SEJOURS ISLANDE
 SELECT  sejour.id, 
 		sejour.titre, 

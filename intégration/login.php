@@ -7,6 +7,10 @@ require_once 'layout/header.php';
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
+            <h2> Espace connexion </h2>
+
+            <a href="inscription.php">Inscription</a> |
+            <a href="">Mot de passe perdu</a>
             <form class="form-horizontal" action="admin/" method="POST">
                 <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
@@ -22,20 +26,10 @@ require_once 'layout/header.php';
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Se sourvenir de moi
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-default">Se connecter</button>
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
