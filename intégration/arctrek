@@ -124,8 +124,8 @@ SELECT  sejour.id,
 		DATE_FORMAT(MIN(date_depart.depart), '%d-%m-%Y') AS 'depart'
 FROM sejour
 INNER JOIN destination ON destination.id = sejour.destination_id
-INNER JOIN date_depart ON date_depart.id = sejour.id
-WHERE sejour.id = 3;
+INNER JOIN date_depart ON date_depart.sejour_id = sejour.id
+WHERE sejour.id = 26;
 
 -- NB de sejours selon la destination 
 SELECT * 
