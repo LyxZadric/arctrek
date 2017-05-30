@@ -31,7 +31,7 @@ $liste_categories = getAllCategories();
       </div>
       <div class="form-group">
           <label for="code_postale">Code-postal</label>
-          <input type="text" name="code_postale" class="form-control" id="code_postale" placeholder="code_postal">
+          <input type="number" min=1 max="100000" name="code_postale" class="form-control" id="code_postale" placeholder="code_postal">
       </div>
       <div class="form-group">
           <label for="mail">E-mail</label>
@@ -43,7 +43,7 @@ $liste_categories = getAllCategories();
       </div>
       <div class="form-group">
           <label for="admin">Admin (admin: 1, utilisateur : 0)</label>
-          <input type="number" name="admin" >
+          <input type="number" min=0 max=1 name="admin" >
       </div>
     <button type="submit" class="btn btn-success">
         <i class="fa fa-save"></i>

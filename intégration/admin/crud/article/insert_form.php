@@ -10,8 +10,8 @@ $liste_categories = getAllCategories();
 
 <form action="insert_query.php" method="POST" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="inputTitre">Titre</label>
-        <input type="text" name="titre" class="form-control" id="inputTitre" placeholder="Titre">
+        <label for="titre">Titre</label>
+        <input type="text" name="titre" class="form-control" id="titre" placeholder="titre">
     </div>
     <div class="form-group">
         <label for="inputImage">Image</label>

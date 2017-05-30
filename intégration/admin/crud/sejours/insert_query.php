@@ -2,16 +2,20 @@
 require_once __DIR__ . '/../../security.php';
 require_once __DIR__ . '/../../../model/database.php';
 
-$nom = $_POST["nom"];
-$prenom = $_POST['prenom'];
-$telephone = $_POST['telephone'];
-$adresse = $_POST['adresse'];
-$ville = $_POST['ville'];
-$cp = $_POST['code_postal'];
-$mail = $_POST['mail'];
-$mdp = $_POST['mdp'];
-$admin = $_POST['admin'];
+$titre = $_POST["titre"];
+$contenu = $_POST['contenu'];
+$difficulte = $_POST['difficulte'];
+$duree_sejour = $_POST['duree_sejour'];
+$prix = $_POST['prix'];
+$itineraire = $_POST['itineraire'];
+$equipement = $_POST['equipement'];
+$formalite = $_POST['formalite'];
+$sante = $_POST['sante'];
+$climat = $_POST['climat'];
+$image = $_POST['image'];
+$destination_id= $_POST['destination_id'];
 
-ajoutUtilisateur($nom, $prenom, $telephone, $adresse, $ville, $cp,$mail, $mdp,$admin);
+addSejour($titre, $contenu, $difficulte, $duree_sejour, $prix, $itineraire ,$equipement,
+                  $formalite,$sante, $climat, $image, $destination_id);
 
 header("Location: index.php");

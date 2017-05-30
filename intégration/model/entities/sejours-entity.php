@@ -123,3 +123,31 @@ function getNbSejours($id) {
 
     return $stmt->fetchAll();
 }
+
+function addSejour($titre, $contenu,$difficulte, $duree_sejour, $prix,
+                      $itineraire, $equipement, $formalite, $sante, $climat, $image, $destination_id){
+  global $connection;
+
+  $query = "INSERT INTO sejour(titre, contenu, difficulte, duree_sejour, prix,
+                        itinéraire, equipement, formalite, sante, climat, image, destination_id)
+            VALUES (:titre, :contenu, :difficulte, :duree_sejour, :prix, :itineraire,
+                    :equipement, :formalite, :sante, :climat, :image, :destination_id)
+            ";
+
+  $stmt = $connection->prepare($query);
+  $stmt->bindParam(":titre", $titre);
+  $stmt->bindParam(":contenu", $contenu);
+  $stmt->bindParam(":difficulte", $difficulte);
+  $stmt->bindParam(":duree_sejour", $duree_sejour);
+  $stmt->bindParam(":prix", $prix);
+  $stmt->bindParam(":itineraire", $itineraire);
+  $stmt->bindParam(":equipement", $equipement);
+  $stmt->bindParam(":formalite", $formalite);
+  $stmt->bindParam(":sante", $sante);
+  $stmt->bindParam(":climat", $climat);
+  $stmt->bindParam(":image", $image);
+  $stmt->bindParam(":destination_id", $destination_id);
+  $stmt->execute();
+
+
+}

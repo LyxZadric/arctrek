@@ -5,10 +5,8 @@ require_once __DIR__ . '/../../../model/database.php';
 $image = $_FILES["image"]["name"];
 move_uploaded_file($_FILES["image"]["tmp_name"], __DIR__ . "/../../../img/" . $image);
 
-$titre = $_POST["titre"];
-$contenu = $_POST["contenu"];
-$categorie = $_POST["categorie"];
+$libelle = $_POST["libelle"];
 
-insertArticle($titre, $image, $contenu, $current_user["id"], $categorie);
+addDestination($libelle, $image);
 
 header("Location: index.php");

@@ -65,9 +65,10 @@ function inscriptionUtilisateur($nom, $prenom, $mail, $mdp){
   $stmt->bindParam(":mail", $mail);
   $stmt->bindParam(":mdp", $mdp);
   $stmt->execute();
+
 }
 
-function ajoutUtilisateur($nom, $prenom, $telephone, $adresse, $ville, $cp, $mail, $mdp){
+function addUtilisateur($nom, $prenom, $telephone, $adresse, $ville, $cp, $mail, $mdp){
   global $connection;
 
   $query = "INSERT INTO utilisateur(nom, prenom, telephone, adresse, ville, code_postale, mail, mdp, admin)
@@ -81,6 +82,7 @@ function ajoutUtilisateur($nom, $prenom, $telephone, $adresse, $ville, $cp, $mai
   $stmt->bindParam(":ville", $ville);
   $stmt->bindParam(":code_postale", $cp);
   $stmt->bindParam(":mail", $mail);
-  $stmt->bindParam(":mdp", md5($mdp));
+  $stmt->bindParam(":mdp", $mdp);
   $stmt->execute();
+
 }

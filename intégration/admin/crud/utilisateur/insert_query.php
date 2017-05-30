@@ -7,11 +7,11 @@ $prenom = $_POST['prenom'];
 $telephone = $_POST['telephone'];
 $adresse = $_POST['adresse'];
 $ville = $_POST['ville'];
-$cp = (int)$_POST['code_postale'];
+$cp = $_POST['code_postale'];
 $mail = $_POST['mail'];
-$mdp = $_POST['mdp'];
+$mdp = md5($_POST['mdp']);
 $admin = $_POST['admin'];
 
-ajoutUtilisateur($nom, $prenom, $telephone, $adresse, $ville, $cp,$mail, $mdp, $admin);
+addUtilisateur($nom, $prenom, $telephone, $adresse, $ville, $cp,$mail, $mdp, $admin);
 
 header("Location: index.php");

@@ -92,3 +92,19 @@ function getAllArticleByCat($cat) {
 
     return $stmt->fetchAll();
 }
+
+function addArticle($titre, $contenu, $image, $categorie_id, $utilisateur_id){
+  global $connection;
+
+  $query = "INSERT INTO article(titre, contenu, date_creation, image, categorie_id, utilisateur_id)
+            VALUES(:titre, :contenu, NOW(), :image, :categorie_id, :utilisateur_id)
+            ";
+
+  $stmt = $connection->prepare($query);
+  $stmt->bindParam(":titre", $titre);
+  $stmt->bindParam(":contenu", $contenu);
+  $stmt->bindParam(":image", $image);
+  $stmt->bindParam(":categorie_id", $categorie_id);
+  $stmt->bindParam(":utilisateur_id", $utilisateur_id);
+  $stmt->execute();
+}
