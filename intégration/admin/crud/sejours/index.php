@@ -2,12 +2,12 @@
 require_once __DIR__ . '/../../security.php';
 require_once __DIR__ . '/../../../model/database.php';
 
-$liste_articles = getAllArticles();
+$liste_sejours = getAllSejours();
 
 require_once __DIR__ . '/../../layout/header.php';
 ?>
 
-<h1>Gestion des articles</h1>
+<h1>Gestion des Séjours</h1>
 
 <a href="insert_form.php" class="btn btn-success">
     <i class="fa fa-plus"></i>
@@ -25,27 +25,25 @@ require_once __DIR__ . '/../../layout/header.php';
 <table class="table table-bordered table-condensed table-striped table-hover">
     <thead>
         <tr>
-            <th>Titre</th>
-            <th>Date création</th>
-            <th>Utilisateur</th>
+            <th>Nom du séjour</th>
+            <th>Destination</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($liste_articles as $article) : ?>
+        <?php foreach ($liste_sejours as $sejour) : ?>
             <tr>
-                <td><?php echo $article["titre"]; ?></td>
-                <td><?php echo $article["date_creation"]; ?></td>
-                <td><?php echo $article["utilisateur"]; ?></td>
+                <td><?php echo $sejour["titre"]; ?></td>
+                <td><?php echo $sejour["destination"]; ?></td>
                 <td>
                     <form action="delete_query.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $article["id"] ?>">
+                        <input type="hidden" name="id" value="<?php echo $sejour["id"] ?>">
                         <button type="submit" class="btn btn-danger">
                             <i class="fa fa-trash"></i>
                             Supprimer
                         </button>
                     </form>
-                    <a href="update_form.php?id=<?php echo $article["id"]; ?>" class="btn btn-warning">
+                    <a href="update_form.php?id=<?php echo $sejour["id"]; ?>" class="btn btn-warning">
                         <i class="fa fa-edit"></i>
                         Modifier
                     </a>

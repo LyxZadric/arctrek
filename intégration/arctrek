@@ -127,8 +127,44 @@ INNER JOIN destination ON destination.id = sejour.destination_id
 INNER JOIN date_depart ON date_depart.sejour_id = sejour.id
 WHERE sejour.id = 26;
 
--- NB de sejours selon la destination 
-SELECT * 
+-- Inscription utilisateur
+INSERT INTO utilisateur(nom,prenom,mail,mdp,admin) VALUES('tristan', 'panda', 'tristan.panda@gmail.com', md5('tristan'), 0);
+ 
+-- Get all utilsateur
+SELECT * FROM utilisateur 
+ORDER BY utilisateur.nom;
+
+-- Get all sejour
+SELECT sejour.id,
+	   sejour.titre,
+		sejour.contenu,
+		sejour.difficulte,
+		sejour.duree_sejour,
+		sejour.prix,
+		sejour.itinéraire,
+		sejour.equipement,
+		sejour.formalite,
+		sejour.sante, 
+		sejour.climat, 
+		sejour.image, 
+		destination.libelle AS 'destination'
 FROM sejour
-;
+INNER JOIN destination ON destination.id = sejour.destination_id 
+ORDER BY sejour.id DESC;
+
+-- Get all article
+SELECT article.id,
+	   article.titre,
+	   article.contenu,
+		article.date_creation,
+		article.image,
+		article.categorie_id, 
+		article.utilisateur_id,
+		CONCAT(article.nom, ' ' ,article.prenom) AS 'utilisateur'
+FROM article 
+INNER JOIN utilisateur ON utilisateur.id = article.utilisateur_id
+ORDER BY date_creation DESC;
+
+
+
 

@@ -3,7 +3,7 @@ require_once 'layout/header.php';
 require_once 'model/database.php';
 $id = $_GET['id'];
 $destinations = getAllDestinations();
-$sejours = getAllSejours($id);
+$sejours = getAllSejoursByDest($id);
 $nbjsejours = getNbSejours($sejours[0]['destination_id']);
 
  ?>

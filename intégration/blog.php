@@ -3,7 +3,7 @@
   require_once "model/database.php";
 
   $id = $_GET['id'];
-  $articles = getAllArticle($id);
+  $articles = getAllArticleByCat($id);
 
 ?>
 

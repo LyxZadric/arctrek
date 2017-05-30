@@ -1,4 +1,16 @@
 <?php
+function getAllUsers(){
+
+  global $connection;
+
+  $query = "SELECT * FROM utilisateur ORDER BY utilisateur.nom";
+
+  $stmt = $connection->prepare($query);
+  $stmt->execute();
+
+  return $stmt->fetch();
+
+}
 
 function getUser($id){
 
@@ -19,8 +31,6 @@ function getUser($id){
   $stmt->execute();
 
   return $stmt->fetch();
-
-
 }
 function getUserByEmailPassword($email, $password) {
     global $connection;

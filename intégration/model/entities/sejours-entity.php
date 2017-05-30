@@ -1,5 +1,29 @@
 <?php
+function getAllSejours(){
+  global $connection;
 
+  $query = "SELECT sejour.id,
+	                 sejour.titre,
+		               sejour.contenu,
+		               sejour.difficulte,
+		               sejour.duree_sejour,
+		               sejour.prix,
+		               sejour.itinéraire,
+		               sejour.equipement,
+		               sejour.formalite,
+		               sejour.sante,
+		               sejour.climat,
+		               sejour.image,
+		               destination.libelle AS 'destination'
+            FROM sejour
+            INNER JOIN destination ON destination.id = sejour.destination_id
+            ORDER BY sejour.id DESC;";
+
+  $stmt = $connection->prepare($query);
+  $stmt->execute();
+
+  return $stmt->fetchAll();
+}
 function getSejours($id) {
     global $connection;
 
@@ -27,7 +51,7 @@ function getSejours($id) {
     return $stmt->fetchAll();
 }
 
-function getAllSejours($id) {
+function getAllSejoursByDest($id) {
     global $connection;
 
     $query = "SELECT  sejour.id,

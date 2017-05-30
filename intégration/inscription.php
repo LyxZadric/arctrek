@@ -9,7 +9,7 @@ if(isset($_GET['login'])){
     echo "Inscription Validé";
     echo "<a href='login.php'>Se connecter</a>";
   } else{
-    echo "input manquant";
+    echo "";
   }
 }
 ?>
@@ -51,15 +51,7 @@ if(isset($_GET['login'])){
                         <input type="password" name="mdp_confirm" class="form-control" id="confirmPassword" placeholder="Mot de passe">
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Se sourvenir de moi
-                            </label>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-default">Inscription</button>

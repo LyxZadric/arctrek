@@ -1,4 +1,25 @@
 <?php
+function getAllArticles(){
+
+  global $connection;
+
+  $query = "SELECT article.id,
+	                 article.titre,
+	                 article.contenu,
+		               article.date_creation,
+		               article.image,
+		               article.categorie_id,
+		               article.utilisateur_id,
+		                 CONCAT(utilisateur.nom, ' ' ,utilisateur.prenom) AS 'utilisateur'
+            FROM article
+            INNER JOIN utilisateur ON utilisateur.id = article.utilisateur_id
+            ORDER BY date_creation DESC";
+
+  $stmt = $connection->prepare($query);
+  $stmt->execute();
+
+  return $stmt->fetchAll();
+}
 
 function getArticlesByCategorie($id) {
     global $connection;
@@ -48,7 +69,7 @@ function getArticle($id, $cat) {
     return $stmt->fetchAll();
 }
 
-function getAllArticle($cat) {
+function getAllArticleByCat($cat) {
     global $connection;
 
     $query = "SELECT article.id,
