@@ -10,11 +10,13 @@ $mdp = $_POST["mdp"];
 $mdp_confirm = $_POST["mdp_confirm"];
 
 if(isset($nom) AND isset($prenom) AND isset($mail) AND isset($mdp) AND isset($mdp_confirm)){
-
-    inscriptionUtilisateur($nom, $prenom, $mail, md5($mdp));
-
+  if($mdp == $mdp_confirm){
+      inscriptionUtilisateur($nom, $prenom, $mail, md5($mdp));
+  }else{
+    header("Location: inscription.php?login=error");
+  }
 }else{
-  header("Location: inscription.php?login=error");
+  header("Location: inscription.php?login=miss");
 }
 
 

@@ -9,7 +9,7 @@ require_once 'layout/header.php';
 
             <h2> Espace connexion </h2>
 
-            <a href="inscription.php?login=''">Inscription</a> |
+            <a href="inscription.php?login='none'">Inscription</a> |
             <a href="">Mot de passe perdu</a>
             <form class="form-horizontal" action="admin/" method="POST">
                 <div class="form-group">

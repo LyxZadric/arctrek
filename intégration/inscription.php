@@ -2,13 +2,14 @@
 
 require_once 'layout/header.php';
 
-if(isset($_GET[login])){
+if(isset($_GET['login'])){
   if($_GET["login"] == 'error'){
     echo "Email ou mot de passe incorrect";
   } else if($_GET["login"] == 'succes'){
     echo "Inscription Validé";
+    echo "<a href='login.php'>Se connecter</a>";
   } else{
-    echo "";
+    echo "input manquant";
   }
 }
 ?>
@@ -23,25 +24,25 @@ if(isset($_GET[login])){
                 <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Nom</label>
                     <div class="col-sm-10">
-                        <input type="text" name="nom" class="form-control" id="nom" placeholder="">
+                        <input type="text" name="nom" class="form-control" id="nom" placeholder="" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Prenom</label>
                     <div class="col-sm-10">
-                        <input type="text" name="prenom" class="form-control" id="prenom" placeholder="">
+                        <input type="text" name="prenom" class="form-control" id="prenom" placeholder="" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="email" name="mail" class="form-control" id="Email" placeholder="Email">
+                        <input type="email" name="mail" class="form-control" id="Email" placeholder="Email"  required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="col-sm-2 control-label">Mot de passe</label>
                     <div class="col-sm-10">
-                        <input type="password" name="mdp" class="form-control" id="inputPassword" placeholder="Mot de passe">
+                        <input type="password" name="mdp" class="form-control" id="inputPassword" placeholder="Mot de passe"  required>
                     </div>
                 </div>
                 <div class="form-group">
