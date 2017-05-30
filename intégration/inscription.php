@@ -1,6 +1,16 @@
 <?php
 
 require_once 'layout/header.php';
+
+if(isset($_GET[login])){
+  if($_GET["login"] == 'error'){
+    echo "Email ou mot de passe incorrect";
+  } else if($_GET["login"] == 'succes'){
+    echo "Inscription Validé";
+  } else{
+    echo "";
+  }
+}
 ?>
 
 <div class="container">
@@ -9,35 +19,35 @@ require_once 'layout/header.php';
 
             <h2> Espace Inscription </h2>
 
-            <form class="form-horizontal" action="admin/" method="POST">
+            <form class="form-horizontal" action="inscription_query.php" method="POST">
                 <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Nom</label>
                     <div class="col-sm-10">
-                        <input type="text" name="email" class="form-control" id="nom" placeholder="">
+                        <input type="text" name="nom" class="form-control" id="nom" placeholder="">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Prenom</label>
                     <div class="col-sm-10">
-                        <input type="text" name="email" class="form-control" id="prenom" placeholder="">
+                        <input type="text" name="prenom" class="form-control" id="prenom" placeholder="">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="email" name="email" class="form-control" id="Email" placeholder="Email">
+                        <input type="email" name="mail" class="form-control" id="Email" placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="col-sm-2 control-label">Mot de passe</label>
                     <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Mot de passe">
+                        <input type="password" name="mdp" class="form-control" id="inputPassword" placeholder="Mot de passe">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="col-sm-2 control-label">Confirmation mot de passe</label>
                     <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control" id="confirmPassword" placeholder="Mot de passe">
+                        <input type="password" name="mdp_confirm" class="form-control" id="confirmPassword" placeholder="Mot de passe">
                     </div>
                 </div>
                 <div class="form-group">

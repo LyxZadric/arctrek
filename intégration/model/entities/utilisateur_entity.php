@@ -43,3 +43,16 @@ function getUserByEmailPassword($email, $password) {
 
     return $stmt->fetch();
 }
+
+function inscriptionUtilisateur($nom, $prenom, $mail, $mdp){
+  global $connection;
+
+  $query = "INSERT INTO utilisateur(nom, prenom, mail, mdp, admin) VALUES (:nom,:prenom, :mail, :mdp, 0);";
+
+  $stmt = $connection->prepare($query);
+  $stmt->bindParam(":nom", $nom);
+  $stmt->bindParam(":prenom", $prenom);
+  $stmt->bindParam(":mail", $mail);
+  $stmt->bindParam(":mdp", $mdp);
+  $stmt->execute();
+}
