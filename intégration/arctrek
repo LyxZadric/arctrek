@@ -131,8 +131,10 @@ WHERE sejour.id = 26;
 INSERT INTO utilisateur(nom,prenom,mail,mdp,admin) VALUES('tristan', 'panda', 'tristan.panda@gmail.com', md5('tristan'), 0);
  
 -- Get all utilsateur
-SELECT * FROM utilisateur 
-ORDER BY utilisateur.nom;
+SELECT * FROM utilisateur;
+
+-- Get all categorie
+SELECT * FROM categorie;
 
 -- Get all sejour
 SELECT sejour.id,
@@ -160,11 +162,11 @@ SELECT article.id,
 		article.image,
 		article.categorie_id, 
 		article.utilisateur_id,
-		CONCAT(article.nom, ' ' ,article.prenom) AS 'utilisateur'
+		CONCAT(utilisateur.nom, ' ' ,utilisateur.prenom) AS 'utilisateur'
 FROM article 
 INNER JOIN utilisateur ON utilisateur.id = article.utilisateur_id
 ORDER BY date_creation DESC;
 
 
-
-
+-- AJOUTER un article 
+INSERT INTO sejour(

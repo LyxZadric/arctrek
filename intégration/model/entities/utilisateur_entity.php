@@ -3,12 +3,12 @@ function getAllUsers(){
 
   global $connection;
 
-  $query = "SELECT * FROM utilisateur ORDER BY utilisateur.nom";
+  $query = "SELECT * FROM utilisateur";
 
   $stmt = $connection->prepare($query);
   $stmt->execute();
 
-  return $stmt->fetch();
+  return $stmt->fetchAll();
 
 }
 
@@ -64,5 +64,23 @@ function inscriptionUtilisateur($nom, $prenom, $mail, $mdp){
   $stmt->bindParam(":prenom", $prenom);
   $stmt->bindParam(":mail", $mail);
   $stmt->bindParam(":mdp", $mdp);
+  $stmt->execute();
+}
+
+function ajoutUtilisateur($nom, $prenom, $telephone, $adresse, $ville, $cp, $mail, $mdp){
+  global $connection;
+
+  $query = "INSERT INTO utilisateur(nom, prenom, telephone, adresse, ville, code_postale, mail, mdp, admin)
+            VALUES (:nom,:prenom, :telephone, :adresse, :ville, :code_postale, :mail, :mdp, :admin)";
+
+  $stmt = $connection->prepare($query);
+  $stmt->bindParam(":nom", $nom);
+  $stmt->bindParam(":prenom", $prenom);
+  $stmt->bindParam(":telephone", $telephone);
+  $stmt->bindParam(":adresse", $adresse);
+  $stmt->bindParam(":ville", $ville);
+  $stmt->bindParam(":code_postale", $cp);
+  $stmt->bindParam(":mail", $mail);
+  $stmt->bindParam(":mdp", md5($mdp));
   $stmt->execute();
 }

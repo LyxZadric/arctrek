@@ -37,20 +37,20 @@ require_once __DIR__ . '/../../layout/header.php';
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($liste_utilisateurs as $utilisateur) : ?>
+        <?php foreach ($liste_utilisateurs as $user) : ?>
             <tr>
-                <td><?php echo $utilisateur["nom"]; ?></td>
-                <td><?php echo $utilisateur["prenom"]; ?></td>
-                <td><?php echo $utilisateur["mail"]; ?></td>
+                <td><?php echo $user['nom']; ?></td>
+                <td><?php echo $user["prenom"]; ?></td>
+                <td><?php echo $user["mail"]; ?></td>
                 <td>
                     <form action="delete_query.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $utilisateur["id"] ?>">
+                        <input type="hidden" name="id" value="<?php echo $user["id"] ?>">
                         <button type="submit" class="btn btn-danger">
                             <i class="fa fa-trash"></i>
                             Supprimer
                         </button>
                     </form>
-                    <a href="update_form.php?id=<?php echo $utilisateur["id"]; ?>" class="btn btn-warning">
+                    <a href="update_form.php?id=<?php echo $user["id"]; ?>" class="btn btn-warning">
                         <i class="fa fa-edit"></i>
                         Modifier
                     </a>

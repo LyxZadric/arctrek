@@ -2,13 +2,16 @@
 require_once __DIR__ . '/../../security.php';
 require_once __DIR__ . '/../../../model/database.php';
 
-$image = $_FILES["image"]["name"];
-move_uploaded_file($_FILES["image"]["tmp_name"], __DIR__ . "/../../../img/" . $image);
+$nom = $_POST["nom"];
+$prenom = $_POST['prenom'];
+$telephone = $_POST['telephone'];
+$adresse = $_POST['adresse'];
+$ville = $_POST['ville'];
+$cp = (int)$_POST['code_postale'];
+$mail = $_POST['mail'];
+$mdp = $_POST['mdp'];
+$admin = $_POST['admin'];
 
-$titre = $_POST["titre"];
-$contenu = $_POST["contenu"];
-$categorie = $_POST["categorie"];
-
-insertArticle($titre, $image, $contenu, $current_user["id"], $categorie);
+ajoutUtilisateur($nom, $prenom, $telephone, $adresse, $ville, $cp,$mail, $mdp, $admin);
 
 header("Location: index.php");
