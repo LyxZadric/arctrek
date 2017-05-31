@@ -16,7 +16,7 @@ body {
     font-family: "copperplate"; }
   body .slide {
     position: relative;
-    left: -100%; }
+    left: 0%; }
   body .slidebis {
     position: relative;
     left: 0; }
