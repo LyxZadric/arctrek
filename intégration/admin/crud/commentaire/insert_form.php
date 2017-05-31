@@ -14,7 +14,7 @@ $sejour_id = $_GET['id'];
         <input type="text" name="titre" class="form-control" id="titre" placeholder="titre">
     </div>
     <div class="form-group">
-        <label for="inputImage">Contenu</label>
+        <label for="contenu">Contenu</label>
         <textarea name="contenu" class="form-control" id="inputContenu"></textarea>
     </div>
 

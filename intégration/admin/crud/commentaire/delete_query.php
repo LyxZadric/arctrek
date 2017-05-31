@@ -6,7 +6,7 @@ $error_code = null;
 $id = $_POST["id"];
 
 try {
-    deleteArticle($id);
+    deleteCommentaire($id);
 } catch (PDOException $exc) {
     $error_code = $exc->getCode();
 }

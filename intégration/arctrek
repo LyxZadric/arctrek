@@ -180,3 +180,13 @@ WHERE article.id = 16;
 UPDATE utilisateur
 SET admin = 1
 WHERE utilisateur.id = 16;
+
+-- Affiche commentaire 
+SELECT commentaire.titre,
+	   commentaire.contenu,
+	   commentaire.date_creation,
+	   CONCAT(utilisateur.nom, ' ' , utilisateur.prenom) AS user
+FROM commentaire
+INNER JOIN sejour ON sejour.id = commentaire.sejour_id
+INNER JOIN utilisateur ON utilisateur.id = commentaire.utilisateur_id
+WHERE sejour.id = 26;

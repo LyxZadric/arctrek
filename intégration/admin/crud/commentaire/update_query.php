@@ -5,19 +5,7 @@ require_once __DIR__ . '/../../../model/database.php';
 $id = $_POST["id"];
 $titre = $_POST["titre"];
 $contenu = $_POST["contenu"];
-$categorie = $_POST["categorie"];
 
-if ($_FILES["image"]["name"] != "") {
-    // Upload de la nouvelle image
-    $image = $_FILES["image"]["name"];
-    move_uploaded_file($_FILES["image"]["tmp_name"], __DIR__ . "/../../../images-finales/actus" . $image);
-} else {
-    // Le nom de l'image ne change pas
-    $article = getArticleById($id);
-    $image = $article["image"];
-}
-
-
-updateArticle($id, $titre, $image, $contenu, $categorie);
+updateCommentaire($id, $titre, $contenu);
 
 header("Location: index.php");
