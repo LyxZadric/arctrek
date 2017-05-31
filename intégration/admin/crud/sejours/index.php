@@ -36,7 +36,7 @@ require_once __DIR__ . '/../../layout/header.php';
                 <td><?php echo $sejour["titre"]; ?></td>
                 <td><?php echo $sejour["destination"]; ?></td>
                 <td>
-                    <form action="delete_query.php" method="POST">
+                    <form action="delete_query.php?id=<?php echo $sejour['id'];?>" method="POST">
                         <input type="hidden" name="id" value="<?php echo $sejour["id"] ?>">
                         <button type="submit" class="btn btn-danger">
                             <i class="fa fa-trash"></i>

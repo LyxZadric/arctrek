@@ -106,7 +106,7 @@ WHERE sejour.id = :id;
     $stmt->bindParam(":id", $id);
     $stmt->execute();
 
-    return $stmt->fetchAll();
+    return $stmt->fetch();
 }
 
 function getNbSejours($id) {
@@ -150,4 +150,53 @@ function addSejour($titre, $contenu,$difficulte, $duree_sejour, $prix,
   $stmt->execute();
 
 
+}
+
+function deleteSejour($id){
+  global $connection;
+
+  $query = "DELETE FROM sejour WHERE sejour.id = :id
+            ";
+
+  $stmt = $connection->prepare($query);
+  $stmt->bindParam(":id", $id);
+  $stmt->execute();
+
+}
+
+function updateSejour($id,$titre, $contenu,$difficulte, $duree_sejour, $prix,
+                      $itineraire, $equipement, $formalite, $sante, $climat, $image, $destination_id) {
+    global $connection;
+
+    $query = "UPDATE sejour
+                  SET titre = :titre,
+                      contenu = :contenu,
+                      difficulte = :difficulte,
+                      duree_sejour = :duree_sejour,
+                      prix = :prix,
+                      itinéraire = :itineraire,
+                      equipement = :equipement,
+                      formalite =:formalite,
+                      sante = :sante,
+                      climat = :climat,
+                      image = :image,
+                      destination_id = :destination_id
+            WHERE sejour.id = :id
+    ";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":id", $id);
+    $stmt->bindParam(":titre", $titre);
+    $stmt->bindParam(":contenu", $contenu);
+    $stmt->bindParam(":difficulte", $difficulte);
+    $stmt->bindParam(":duree_sejour", $duree_sejour);
+    $stmt->bindParam(":prix", $prix);
+    $stmt->bindParam(":itineraire", $itineraire);
+    $stmt->bindParam(":equipement", $equipement);
+    $stmt->bindParam(":formalite", $formalite);
+    $stmt->bindParam(":sante", $sante);
+    $stmt->bindParam(":climat", $climat);
+    $stmt->bindParam(":image", $image);
+    $stmt->bindParam(":destination_id", $destination_id);
+    $stmt->execute();
 }

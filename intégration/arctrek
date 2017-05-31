@@ -171,3 +171,12 @@ ORDER BY date_creation DESC;
 -- AJOUTER un article 
 INSERT INTO article(titre, contenu, date_creation, image, categorie_id, utilisateur_id)
 VALUES("article test", "...", NOW(),  "...", 1, 5);
+
+-- Delete exemple
+DELETE FROM article
+WHERE article.id = 16;
+
+-- Modifier exemple
+UPDATE utilisateur
+SET admin = 1
+WHERE utilisateur.id = 16;

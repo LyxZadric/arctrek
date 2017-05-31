@@ -33,6 +33,7 @@ require_once __DIR__ . '/../../layout/header.php';
             <th>Nom</th>
             <th>Prénom</th>
             <th>Email</th>
+            <th>Status Utilisateur</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -42,8 +43,9 @@ require_once __DIR__ . '/../../layout/header.php';
                 <td><?php echo $user['nom']; ?></td>
                 <td><?php echo $user["prenom"]; ?></td>
                 <td><?php echo $user["mail"]; ?></td>
+                <td><?php echo $user['admin']; ?></td>
                 <td>
-                    <form action="delete_query.php" method="POST">
+                    <form action="delete_query.php?id=<?php echo $user['id'];?>" method="POST">
                         <input type="hidden" name="id" value="<?php echo $user["id"] ?>">
                         <button type="submit" class="btn btn-danger">
                             <i class="fa fa-trash"></i>

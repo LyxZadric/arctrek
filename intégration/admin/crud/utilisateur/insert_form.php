@@ -3,7 +3,6 @@ require_once __DIR__ . '/../../security.php';
 require_once __DIR__ . '/../../../model/database.php';
 require_once __DIR__ . '/../../layout/header.php';
 
-$liste_categories = getAllCategories();
 ?>
 
 <h1>Ajouter un utilisateur</h1>

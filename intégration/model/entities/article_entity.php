@@ -69,6 +69,29 @@ function getArticle($id, $cat) {
     return $stmt->fetchAll();
 }
 
+function getArticleById($id) {
+    global $connection;
+
+    $query = "SELECT article.id,
+		                  article.titre,
+		                  article.contenu,
+		                  article.date_creation,
+		                  article.image,
+		                  article.categorie_id,
+		                  CONCAT(utilisateur.nom,' ',utilisateur.prenom) AS auteur
+              FROM article
+              INNER JOIN categorie ON categorie.id = article.categorie_id
+              INNER JOIN utilisateur ON utilisateur.id = article.utilisateur_id
+              WHERE article.id = :id
+              ";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+
+    return $stmt->fetch();
+}
+
 function getAllArticleByCat($cat) {
     global $connection;
 
@@ -107,4 +130,35 @@ function addArticle($titre, $contenu, $image, $categorie_id, $utilisateur_id){
   $stmt->bindParam(":categorie_id", $categorie_id);
   $stmt->bindParam(":utilisateur_id", $utilisateur_id);
   $stmt->execute();
+}
+
+function deleteArticle($id){
+  global $connection;
+
+  $query = "DELETE FROM article WHERE article.id = :id
+            ";
+
+  $stmt = $connection->prepare($query);
+  $stmt->bindParam(":id", $id);
+  $stmt->execute();
+}
+
+function updateArticle($id, $titre, $image, $contenu, $categorie_id) {
+    global $connection;
+
+    $query = "UPDATE article SET
+                titre = :titre,
+                image = :image,
+                contenu = :contenu,
+                categorie_id = :categorie_id
+            WHERE article.id = :id
+    ";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":titre", $titre);
+    $stmt->bindParam(":image", $image);
+    $stmt->bindParam(":contenu", $contenu);
+    $stmt->bindParam(":categorie_id", $categorie_id);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
 }

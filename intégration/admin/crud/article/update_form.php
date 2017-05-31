@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../../model/database.php';
 require_once __DIR__ . '/../../layout/header.php';
 
 $id = $_GET["id"];
-$article = getArticle($id);
+$article = getArticleById($id);
 $liste_categories = getAllCategories();
 ?>
 

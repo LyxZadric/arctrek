@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../security.php';
 require_once __DIR__ . '/../../layout/header.php';
+
 ?>
 
 <h1>Ajouter une catégorie</h1>
@@ -10,6 +11,7 @@ require_once __DIR__ . '/../../layout/header.php';
         <label for="inputLibelle">Libellé</label>
         <input type="text" name="libelle" class="form-control" id="inputLibelle" placeholder="Libellé">
     </div>
+
     <button type="submit" class="btn btn-success">
         <i class="fa fa-save"></i>
         Enregistrer

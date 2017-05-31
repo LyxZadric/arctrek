@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../../model/database.php';
 require_once __DIR__ . '/../../layout/header.php';
 
 $id = $_GET["id"];
-$categorie = getCategorie($id);
+$categorie = getCategoriesById($id);
 ?>
 
 <h1>Modifier une catégorie</h1>

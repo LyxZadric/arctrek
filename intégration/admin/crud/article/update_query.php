@@ -10,10 +10,10 @@ $categorie = $_POST["categorie"];
 if ($_FILES["image"]["name"] != "") {
     // Upload de la nouvelle image
     $image = $_FILES["image"]["name"];
-    move_uploaded_file($_FILES["image"]["tmp_name"], __DIR__ . "/../../../img/" . $image);
+    move_uploaded_file($_FILES["image"]["tmp_name"], __DIR__ . "/../../../images-finales/actus" . $image);
 } else {
     // Le nom de l'image ne change pas
-    $article = getArticle($id);
+    $article = getArticleById($id);
     $image = $article["image"];
 }
 

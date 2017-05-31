@@ -34,7 +34,7 @@ require_once __DIR__ . '/../../layout/header.php';
             <tr>
                 <td><?php echo $categorie["libelle"]; ?></td>
                 <td>
-                    <form action="delete_query.php" method="POST">
+                    <form action="delete_query.php?id=<?php echo $categorie['id'];?>" method="POST">
                         <input type="hidden" name="id" value="<?php echo $categorie["id"] ?>">
                         <button type="submit" class="btn btn-danger">
                             <i class="fa fa-trash"></i>
