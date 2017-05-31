@@ -48,7 +48,7 @@ function getCommentById($id){
                    commentaire.titre,
 	                 commentaire.contenu,
 	                 commentaire.date_creation,
-	          CONCAT(utilisateur.nom, ' ' , utilisateur.prenom) AS user
+	          CONCAT(utilisateur.nom, ' ' , utilisateur.prenom) AS 'user'
             FROM commentaire
             INNER JOIN utilisateur ON utilisateur.id = commentaire.utilisateur_id
             WHERE commentaire.id = :id;
@@ -93,7 +93,7 @@ function updateCommentaire($id, $titre, $contenu){
 
   $query = "UPDATE commentaire SET
               titre = :titre,
-              contenu = :contenu,
+              contenu = :contenu
             WHERE commentaire.id = :id
   ";
 

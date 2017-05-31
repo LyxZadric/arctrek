@@ -47,7 +47,7 @@ require_once __DIR__ . '/../../layout/header.php';
                         <i class="fa fa-edit"></i>
                         Modifier
                     </a>
-                    <a href="insert_form.php" class="btn btn-success">
+                    <a href="../date_depart/insert_form.php?id=<?php echo $sejour['id'];?>" class="btn btn-success">
                         <i class="fa fa-plus"></i>
                         Ajouter date de départ
                     </a>

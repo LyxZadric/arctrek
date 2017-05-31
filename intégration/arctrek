@@ -190,3 +190,29 @@ FROM commentaire
 INNER JOIN sejour ON sejour.id = commentaire.sejour_id
 INNER JOIN utilisateur ON utilisateur.id = commentaire.utilisateur_id
 WHERE sejour.id = 26;
+
+-- Affiche toutes les dates de départ
+SELECT * FROM date_depart;
+
+SELECT date_depart.id,
+                     date_depart.depart,
+  	                 date_depart.prix,
+  	                 date_depart.place,
+  	                 sejour.titre,
+                     destination.libelle
+              FROM date_depart
+              INNER JOIN sejour ON sejour.id = date_depart.sejour_id
+              INNER JOIN destination ON destination.id = sejour.destination_id
+			  ORDER BY sejour.id;
+
+SELECT date_depart.id,
+                   date_depart.depart,
+	                 date_depart.prix,
+	                 date_depart.place,
+					 date_depart.sejour_id,
+                   sejour.titre AS 'sejour',
+                   destination.libelle AS 'destination'
+               FROM date_depart
+               INNER JOIN sejour ON sejour.id = date_depart.sejour_id
+               INNER JOIN destination ON destination.id = sejour.destination_id
+ 			         WHERE date_depart.id = 24
