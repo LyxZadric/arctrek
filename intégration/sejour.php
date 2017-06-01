@@ -76,44 +76,32 @@
               <th>Au</th>
               <th>Prix</th>
               <th>Départ Assuré</th>
-              <th>Places à réserver</th>
               <th>Réserver</th>
           </tr>
       </thead>
       <tbody>
         <?php foreach ($liste_depart as $depart): ?>
+
+        <?php
+        $date_depart = strtotime($depart['depart']);
+        $duree = $sejour['duree_sejour'];
+        $date_fin = date('d-m-Y', strtotime('+'.$duree. ' day', $date_depart));
+        ?>
               <tr>
-                  <td><?php echo $depart["depart"]; ?></td>
-                  <td>                                </td>
+                  <td><?php echo date('d-m-Y', $date_depart); ?></td>
+                  <td><?php echo $date_fin;?></td>
                   <td><?php echo $depart["prix"]. '€'; ?></td>
                   <td><?php if($depart["place"] >= 5):?>
                         <?php echo "Assuré";?>
                       <?php elseif($depart["place"] < 5):?>
-                        <?php echo "Plus que " . $depart["place"];?>
+                        <?php echo "Plus que " . $depart["place"]. " places";?>
                       <?php elseif($depart['place'] == 0): ?>
                         <?php echo "Complet";?>
                       <?php endif;?>
                   </td>
                   <td>
-                    <form action="delete_query.php?id=<?php echo $depart['id'];?>" method="POST">
-                      <label></label>
-                      <select name="places_reservation">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td>
-                      <form action="delete_query.php?id=<?php echo $depart['id'];?>" method="POST">
-                          <input type="hidden" name="id" value="<?php echo $depart["id"] ?>">
+                      <form action="reservation.php#img-header" method="GET">
+                          <input type="hidden" name="id" value="<?php echo $sejour["id"]; ?>">
                           <button type="submit" class="btn btn-danger">
                               <i class="fa fa-trash"></i>
                               Réserver

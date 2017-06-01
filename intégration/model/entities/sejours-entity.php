@@ -82,12 +82,12 @@ function getAllSejoursByDest($id) {
 function getAllInfoSejour($id) {
     global $connection;
 
-    $query = "SELECT  sejour.id,
+$query = "SELECT  sejour.id,
 		sejour.titre,
 		sejour.contenu,
 		sejour.difficulte,
 		sejour.duree_sejour,
-		sejour.prix,
+    sejour.prix,
 		sejour.climat,
 		sejour.sante,
 		sejour.equipement,
@@ -96,7 +96,8 @@ function getAllInfoSejour($id) {
 		sejour.image,
 		destination.id AS 'destination_id',
 		destination.libelle,
-		DATE_FORMAT(MIN(date_depart.depart), '%d-%m-%Y') AS 'depart'
+		DATE_FORMAT(MIN(date_depart.depart), '%d-%m-%Y') AS 'depart',
+    date_depart.prix AS 'prix_depart'
 FROM sejour
 INNER JOIN destination ON destination.id = sejour.destination_id
 INNER JOIN date_depart ON date_depart.sejour_id = sejour.id
