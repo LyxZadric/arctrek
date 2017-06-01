@@ -2,13 +2,14 @@
   require_once "layout/header.php";
   require_once "model/database.php";
 
-  $id = $_GET['id'];
-  $articles = getAllArticleByCat($id);
+  //Récupère le paramètre cat des liens vers les articles (index.php,blog.php => button)
+  $cat = $_GET['cat'];
+  $articles = getAllArticleByCat($cat);
 
 ?>
 
-<button type="button" name="button"><a href="blog.php?id=1">Actualités</a></button>
-<button type="button" name="button"><a href="blog.php?id=2">Récits de voyages</a></button>
+<button type="button" name="button"><a href="blog.php?cat=1">Actualités</a></button>
+<button type="button" name="button"><a href="blog.php?cat=2">Récits de voyages</a></button>
 
 <section class="actus">
     <div class="row">

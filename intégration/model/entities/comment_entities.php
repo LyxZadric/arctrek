@@ -6,7 +6,7 @@ function getAllCommentaires(){
   $query = "SELECT commentaire.id,
                    commentaire.titre,
 	                 commentaire.contenu,
-	                 DATE_FORMAT(MIN(commentaire.date_creation), '%d/%m/%Y') AS 'date_creation',
+	                 commentaire.date_creation,
 	                 CONCAT(utilisateur.nom, ' ' , utilisateur.prenom) AS user
             FROM commentaire
             INNER JOIN sejour ON sejour.id = commentaire.sejour_id
@@ -25,7 +25,7 @@ function getCommentBySejourId($id){
 
   $query = "SELECT commentaire.titre,
 	                 commentaire.contenu,
-	                 DATE_FORMAT(MIN(commentaire.date_creation), '%d/%m/%Y') AS 'date_creation',
+	                 commentaire.date_creation,
 	          CONCAT(utilisateur.nom, ' ' , utilisateur.prenom) AS user
             FROM commentaire
             INNER JOIN sejour ON sejour.id = commentaire.sejour_id
@@ -47,7 +47,7 @@ function getCommentById($id){
   $query = "SELECT commentaire.id,
                    commentaire.titre,
 	                 commentaire.contenu,
-	                 DATE_FORMAT(MIN(commentaire.date_creation), '%d/%m/%Y') AS 'date_creation',
+	                 commentaire.date_creation,
 	          CONCAT(utilisateur.nom, ' ' , utilisateur.prenom) AS 'user'
             FROM commentaire
             INNER JOIN utilisateur ON utilisateur.id = commentaire.utilisateur_id

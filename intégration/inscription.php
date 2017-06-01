@@ -2,6 +2,7 @@
 
 require_once 'layout/header.php';
 
+//Test du paramètre login renvoyé par inscription_query pour affichage d'erreur ou validation
 if(isset($_GET['login'])){
   if($_GET["login"] == 'error'){
     echo "Email ou mot de passe incorrect";

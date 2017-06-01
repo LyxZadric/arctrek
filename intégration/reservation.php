@@ -2,6 +2,7 @@
 require_once 'layout/header_bis.php';
 require_once __DIR__ . '/model/database.php';
 
+//Récupère l'id du sejour du bouton réservation dans la page sejour.php
 $id = $_GET["id"];
 $places = $_GET['places_reservation'];
 $sejour = getAllInfoSejour($id);

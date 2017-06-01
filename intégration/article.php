@@ -3,8 +3,10 @@
 
   require_once "model/database.php";
 
+  //récupère les données venant des liens_titres sur les articles
   $id = (int)$_GET['id'];
   $cat = (int)$_GET['cat'];
+  //FetchAll au lieu de fetch (à modifier)
   $article = getArticle($id, $cat);
 
   /*echo "<pre>";

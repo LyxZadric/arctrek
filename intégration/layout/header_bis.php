@@ -41,7 +41,7 @@
                             <ul class="nav-principale">
                                 <li><a href="index.php#img-header">Accueil</a></li>
                                 <li><a href="les_sejours.php?id=1#img-header">Nos séjours</a></li>
-                                <li><a href="blog.php?id=1#img-header">Le blog</a></li>
+                                <li><a href="blog.php?cat=1#img-header">Le blog</a></li>
                                 <li><a href="#">A propos</a></li>
                                 <li><a href="#">Contact</a></li>
                             </ul>

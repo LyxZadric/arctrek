@@ -1,6 +1,8 @@
 <?php
 require_once 'layout/header.php';
 require_once 'model/database.php';
+//Récupère l'id sur le lien(nos sejours) en header.php
+//et (voir plus de séjour) en layout/destinations_sejours.php
 $id = $_GET['id'];
 $destinations = getAllDestinations();
 $sejours = getAllSejoursByDest($id);
@@ -12,7 +14,7 @@ $nbjsejours = getNbSejours($sejours[0]['destination_id']);
      <div class="row">
          <h1>Les destinations</h1>
      </div>
-
+<!-- Affichage des destinations-->
      <div class="row dest-content" id="dest-content">
        <?php foreach ($destinations as $destination) : ?>
          <div class="col-lg-3 col-md-6 col-sm-6">

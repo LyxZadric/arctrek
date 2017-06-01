@@ -35,7 +35,7 @@ $i = 3;
 
     <div class="row voir-plus">
         <hr>
-        <a href="blog.php?id=1#img-header"> Lire plus d'actus </a>
+        <a href="blog.php?cat=1#img-header"> Lire plus d'actus </a>
     </div>
 </section>
 
@@ -68,6 +68,6 @@ $i = 3;
 
     <div class="row voir-plus">
         <hr>
-        <a href="blog.php?id=2#img-header">Lire plus de récits de voyage</a>
+        <a href="blog.php?cat=2#img-header">Lire plus de récits de voyage</a>
     </div>
 </section>

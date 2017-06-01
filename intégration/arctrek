@@ -225,3 +225,16 @@ SELECT date_depart.id,
 					 date_depart.sejour_id
                FROM date_depart
 			   WHERE date_depart.sejour_id = 26;
+
+SELECT article.id,
+	   article.titre,
+		                  article.contenu,
+		                  DATE_FORMAT(MIN(article.date_creation), '%d/%m/%Y') AS 'date_creation',
+		                  article.image,
+		                  article.categorie_id,
+                      categorie.libelle,
+		                  CONCAT(utilisateur.nom,' ',utilisateur.prenom) AS auteur
+              FROM article
+              INNER JOIN categorie ON categorie.id = article.categorie_id
+              INNER JOIN utilisateur ON utilisateur.id = article.utilisateur_id
+              WHERE article.categorie_id = 1;

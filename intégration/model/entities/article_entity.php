@@ -6,7 +6,7 @@ function getAllArticles(){
   $query = "SELECT article.id,
 	                 article.titre,
 	                 article.contenu,
-                   DATE_FORMAT(MIN(article.date_creation), '%d/%m/%Y') AS 'date_creation',
+                   article.date_creation,
 		               article.image,
 		               article.categorie_id,
 		               article.utilisateur_id,
@@ -27,7 +27,7 @@ function getArticlesByCategorie($id) {
     $query = "SELECT article.id,
 	                   article.titre,
 		                 article.contenu,
-		                 DATE_FORMAT(MIN(article.date_creation), '%d/%m/%Y') AS 'date_creation',
+		                 article.date_creation,
 		                 article.image,
 		                 article.categorie_id
               FROM article
@@ -50,7 +50,7 @@ function getArticle($id, $cat) {
     $query = "SELECT article.id,
 		                  article.titre,
 		                  article.contenu,
-		                  DATE_FORMAT(MIN(article.date_creation), '%d/%m/%Y') AS 'date_creation',
+		                  article.date_creation,
 		                  article.image,
 		                  article.categorie_id,
 		                  CONCAT(utilisateur.nom,' ',utilisateur.prenom) AS auteur
@@ -75,7 +75,7 @@ function getArticleById($id) {
     $query = "SELECT article.id,
 		                  article.titre,
 		                  article.contenu,
-		                  DATE_FORMAT(MIN(article.date_creation), '%d/%m/%Y') AS 'date_creation',
+		                  article.date_creation,
 		                  article.image,
 		                  article.categorie_id,
 		                  CONCAT(utilisateur.nom,' ',utilisateur.prenom) AS auteur
@@ -98,7 +98,7 @@ function getAllArticleByCat($cat) {
     $query = "SELECT article.id,
 		                  article.titre,
 		                  article.contenu,
-		                  DATE_FORMAT(MIN(article.date_creation), '%d/%m/%Y') AS 'date_creation',
+		                  article.date_creation,
 		                  article.image,
 		                  article.categorie_id,
                       categorie.libelle,

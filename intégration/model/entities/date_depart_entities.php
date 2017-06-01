@@ -5,7 +5,7 @@ function getAllDateDepart(){
     global $connection;
 
     $query = "SELECT date_depart.id,
-                     DATE_FORMAT(MIN(date_depart.depart), '%d/%m/%Y') AS 'depart',
+                     date_depart.depart,
   	                 date_depart.prix,
   	                 date_depart.place,
   	                 sejour.titre AS 'sejour',
@@ -27,7 +27,7 @@ function getDateDepartById($id){
   global $connection;
 
   $query = "SELECT date_depart.id,
-                   DATE_FORMAT(MIN(date_depart.depart), '%d/%m/%Y') AS 'depart',
+                   date_depart.depart,
 	                 date_depart.prix,
 	                 date_depart.place,
                    date_depart.sejour_id,

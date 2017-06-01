@@ -33,7 +33,7 @@ function getSejours($id) {
 		                  sejour.difficulte,
 		                  sejour.duree_sejour,
 		                  date_depart.prix AS 'prix',
-                      DATE_FORMAT(MIN(date_depart.depart), '%d/%m/%Y') AS 'depart',
+                      date_depart.depart,
 		                  sejour.image,
 		                  destination.id AS 'destination_id',
 		                  destination.libelle
@@ -61,7 +61,7 @@ function getAllSejoursByDest($id) {
 		                  sejour.difficulte,
 		                  sejour.duree_sejour,
 		                  date_depart.prix AS 'prix',
-		                  DATE_FORMAT(MIN(date_depart.depart), '%d/%m/%Y') AS 'depart',
+		                  date_depart.depart,
 		                  sejour.image,
 		                  destination.id AS 'destination_id',
 		                  destination.libelle
