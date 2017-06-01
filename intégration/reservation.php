@@ -43,7 +43,7 @@ $date_fin = date('d-m-Y', strtotime('+'.$duree. ' day', $date_depart));
   </ul>
 
   <ul><h4>Montant du voyage</h4>
-    <li id="voyageur">Voyageur</li>
+    <li id="voyageur"><?php echo $places ." Voyageurs";?></li>
     <li id="prix">prix : <?php echo "( ".$sejour["prix"]. "€ x " .$places. ")" ;?> </li>
     <li id="ttc">taxes : <?php echo $ttc . "€";?></li>
     <li id="montant">Montant total : <?php echo $prix + $ttc . "€";?></li>
