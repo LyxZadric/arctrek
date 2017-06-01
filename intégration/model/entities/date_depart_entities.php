@@ -5,7 +5,7 @@ function getAllDateDepart(){
     global $connection;
 
     $query = "SELECT date_depart.id,
-                     date_depart.depart,
+                     DATE_FORMAT(MIN(date_depart.depart), '%d/%m/%Y') AS 'depart',
   	                 date_depart.prix,
   	                 date_depart.place,
   	                 sejour.titre AS 'sejour',
@@ -27,7 +27,7 @@ function getDateDepartById($id){
   global $connection;
 
   $query = "SELECT date_depart.id,
-                   date_depart.depart,
+                   DATE_FORMAT(MIN(date_depart.depart), '%d/%m/%Y') AS 'depart',
 	                 date_depart.prix,
 	                 date_depart.place,
                    date_depart.sejour_id,
@@ -44,6 +44,26 @@ function getDateDepartById($id){
   $stmt->execute();
 
   return $stmt->fetch();
+}
+
+function getDateDepartBySejourId($id){
+
+  global $connection;
+
+  $query = "SELECT date_depart.id,
+                   date_depart.depart,
+	                 date_depart.prix,
+	                 date_depart.place,
+					         date_depart.sejour_id
+               FROM date_depart
+			   WHERE date_depart.sejour_id = :id;
+            ";
+
+  $stmt = $connection->prepare($query);
+  $stmt->bindParam(":id", $id);
+  $stmt->execute();
+
+  return $stmt->fetchAll();
 }
 
 function addDateDepart($depart, $prix, $place, $sejour_id){

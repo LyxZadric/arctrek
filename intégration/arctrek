@@ -215,4 +215,13 @@ SELECT date_depart.id,
                FROM date_depart
                INNER JOIN sejour ON sejour.id = date_depart.sejour_id
                INNER JOIN destination ON destination.id = sejour.destination_id
- 			         WHERE date_depart.id = 24
+			   WHERE date_depart.id = 24;
+
+
+SELECT date_depart.id,
+                   date_depart.depart,
+	                 date_depart.prix,
+	                 date_depart.place,
+					 date_depart.sejour_id
+               FROM date_depart
+			   WHERE date_depart.sejour_id = 26;

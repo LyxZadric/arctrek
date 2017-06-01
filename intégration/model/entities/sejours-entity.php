@@ -33,7 +33,7 @@ function getSejours($id) {
 		                  sejour.difficulte,
 		                  sejour.duree_sejour,
 		                  date_depart.prix AS 'prix',
-		                  date_depart.depart AS 'depart',
+                      DATE_FORMAT(MIN(date_depart.depart), '%d/%m/%Y') AS 'depart',
 		                  sejour.image,
 		                  destination.id AS 'destination_id',
 		                  destination.libelle
@@ -41,6 +41,7 @@ function getSejours($id) {
               INNER JOIN destination ON destination.id = sejour.destination_id
               INNER JOIN date_depart ON date_depart.sejour_id = sejour.id
               WHERE destination_id = :id
+              GROUP BY sejour.id
               LIMIT 2;
               ";
 
@@ -60,7 +61,7 @@ function getAllSejoursByDest($id) {
 		                  sejour.difficulte,
 		                  sejour.duree_sejour,
 		                  date_depart.prix AS 'prix',
-		                  date_depart.depart AS 'depart',
+		                  DATE_FORMAT(MIN(date_depart.depart), '%d/%m/%Y') AS 'depart',
 		                  sejour.image,
 		                  destination.id AS 'destination_id',
 		                  destination.libelle

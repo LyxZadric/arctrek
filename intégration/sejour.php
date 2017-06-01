@@ -5,12 +5,9 @@
   $id = (int)$_GET['id'];
   $sejour = getAllInfoSejour($id);
   $commentaires = getCommentBySejourId($id);
+  $liste_depart = getDateDepartBySejourId($id);
 
-/*echo "<pre>";
-print_r($article);
-echo "</pre>";
-die;
-*/
+
 ?>
 
 <div class="row article">
@@ -66,6 +63,69 @@ die;
           <p><?php echo $sejour['formalite'];?></p>
       </article>
   </div>
+
+
+  <h1>Dates de départ et prix</h1>
+
+  <hr>
+
+  <table class="table table-bordered table-condensed table-striped table-hover">
+      <thead>
+          <tr>
+              <th>Du</th>
+              <th>Au</th>
+              <th>Prix</th>
+              <th>Départ Assuré</th>
+              <th>Places à réserver</th>
+              <th>Réserver</th>
+          </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($liste_depart as $depart): ?>
+              <tr>
+                  <td><?php echo $depart["depart"]; ?></td>
+                  <td>                                </td>
+                  <td><?php echo $depart["prix"]. '€'; ?></td>
+                  <td><?php if($depart["place"] >= 5):?>
+                        <?php echo "Assuré";?>
+                      <?php elseif($depart["place"] < 5):?>
+                        <?php echo "Plus que " . $depart["place"];?>
+                      <?php elseif($depart['place'] == 0): ?>
+                        <?php echo "Complet";?>
+                      <?php endif;?>
+                  </td>
+                  <td>
+                    <form action="delete_query.php?id=<?php echo $depart['id'];?>" method="POST">
+                      <label></label>
+                      <select name="places_reservation">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td>
+                      <form action="delete_query.php?id=<?php echo $depart['id'];?>" method="POST">
+                          <input type="hidden" name="id" value="<?php echo $depart["id"] ?>">
+                          <button type="submit" class="btn btn-danger">
+                              <i class="fa fa-trash"></i>
+                              Réserver
+                          </button>
+                      </form>
+
+                  </td>
+              </tr>
+            <?php endforeach; ?>
+      </tbody>
+  </table>
+
 <?php else : ?>
   <?php require_once '404.php'; ?>
 <?php endif; ?>
