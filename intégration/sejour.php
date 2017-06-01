@@ -76,6 +76,7 @@
               <th>Au</th>
               <th>Prix</th>
               <th>Départ Assuré</th>
+              <th>Nombre de voyageur</th>
               <th>Réserver</th>
           </tr>
       </thead>
@@ -99,16 +100,30 @@
                         <?php echo "Complet";?>
                       <?php endif;?>
                   </td>
+                <form action="reservation.php#img-header" method="GET">
                   <td>
-                      <form action="reservation.php#img-header" method="GET">
+                    <label>voyageurs</label>
+                    <select name="places_reservation" id="places">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                  </td>
+                  <td>
                           <input type="hidden" name="id" value="<?php echo $sejour["id"]; ?>">
                           <button type="submit" class="btn btn-danger">
                               <i class="fa fa-trash"></i>
                               Réserver
                           </button>
-                      </form>
-
                   </td>
+                </form>
               </tr>
             <?php endforeach; ?>
       </tbody>

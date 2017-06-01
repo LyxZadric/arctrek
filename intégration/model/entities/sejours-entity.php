@@ -96,7 +96,7 @@ $query = "SELECT  sejour.id,
 		sejour.image,
 		destination.id AS 'destination_id',
 		destination.libelle,
-		DATE_FORMAT(MIN(date_depart.depart), '%d-%m-%Y') AS 'depart',
+		date_depart.depart AS 'depart',
     date_depart.prix AS 'prix_depart'
 FROM sejour
 INNER JOIN destination ON destination.id = sejour.destination_id
